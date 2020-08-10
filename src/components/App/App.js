@@ -8,6 +8,8 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import JournalCreate from '../Journals/journalsCreate'
+import JournalIndex from '../Journals/journalsIndex'
 
 class App extends Component {
   constructor () {
@@ -53,6 +55,12 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/journal-create' render={() => (
+            <JournalCreate msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/journals' render={() => (
+            <JournalIndex msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
