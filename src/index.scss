@@ -1,1 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'DM Serif Display', serif;
+}
+
+.landing-title {
+  text-align: center;
+}
+
+.journal-index, .content {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}

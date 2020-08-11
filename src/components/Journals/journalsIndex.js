@@ -7,15 +7,19 @@ class JournalIndex extends React.Component {
   state = {
     journals: null
   }
-
-  componentDidmount () {
-    const { setJournals } = this.props
-    axios.get(`${apiConfig}/journals`)
+  componentDidMount () {
+    const { user } = this.props
+    axios({
+      method: 'GET',
+      url: `${apiConfig}/journals`,
+      headers: {
+        'Authorization': `Token token=${user.token}`
+      }
+    })
       .then(response => {
         this.setState({
           journals: response.data.journals
         })
-        setJournals(response.data.journals)
       })
       .catch(console.error)
   }
@@ -33,7 +37,6 @@ class JournalIndex extends React.Component {
               return (
                 <li key={journal._id}>
                   <h3><Link to={`/journals/${journal._id}`}>{journal.title}</Link></h3>
-                  <h4>{journal.content}</h4>
                 </li>
               )
             })}
@@ -41,10 +44,9 @@ class JournalIndex extends React.Component {
         </div>
       )
     }
-
     return (
       <div className="journal-index">
-        <h2>Journals</h2>
+        <h2>Journals Entries</h2>
         {jsx}
       </div>
     )

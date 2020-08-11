@@ -10,6 +10,8 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 import JournalCreate from '../Journals/journalsCreate'
 import JournalIndex from '../Journals/journalsIndex'
+import JournalShow from '../Journals/journalsShow'
+import JournalUpdate from '../Journals/journalsUpdate'
 
 class App extends Component {
   constructor () {
@@ -31,7 +33,6 @@ class App extends Component {
 
   render () {
     const { msgAlerts, user } = this.state
-
     return (
       <Fragment>
         <Header user={user} />
@@ -61,6 +62,12 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/journals' render={() => (
             <JournalIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/journals/:id' render={({ match }) => (
+            <JournalShow msgAlert={this.msgAlert} match={match} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/journals/:id/update' render={({ match }) => (
+            <JournalUpdate msgAlert={this.msgAlert} match={match} user={user} />
           )} />
         </main>
       </Fragment>
