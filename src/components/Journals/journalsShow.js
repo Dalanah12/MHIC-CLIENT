@@ -68,8 +68,8 @@ class JournalShow extends React.Component {
           <section className="content">
             <h3>{this.state.journal.content}</h3>
             <button className="btn btn-danger" onClick={this.deleteJournal}>Delete Journal</button>
-            <Link to={`/journals/${id}/update`}>
-              <button className="btn"></button>
+            <Link to={`/journals/${this.props.match.params.id}/update`}>
+              <button className="btn btn-dark">Update</button>
             </Link>
           </section>
         </div>
@@ -77,7 +77,7 @@ class JournalShow extends React.Component {
     }
     return (
       <div className="show">
-        <h2>Journal</h2>
+        <h2>Selected Journal</h2>
         {jsx}
       </div>
     )

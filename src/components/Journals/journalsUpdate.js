@@ -98,7 +98,7 @@ class JournalUpdate extends React.Component {
               onChange={this.handleInputChange}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">Update</Button>
+          <Button variant="dark" type="submit">Update</Button>
         </Form>
       </div>
     )

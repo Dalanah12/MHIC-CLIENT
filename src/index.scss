@@ -1,14 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 
+$theme-primary: #A3A8A8;
+
 body {
   font-family: 'DM Serif Display', serif;
+  background: $theme-primary
 }
 
 .landing-title {
   text-align: center;
 }
 
-.journal-index, .content {
+.journal-index, .content, .show {
   text-align: center;
 }
 
